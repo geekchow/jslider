@@ -40,13 +40,28 @@
       var layout = $(".layout-slider"),
       trigger = $("#trigger");
       
-      jQuery("#Slider3").slider({ from: 0, to: 500, heterogeneity: ['50/100', '75/250'], scale: [0, '|', 50, '|', '100', '|', 250, '|', 500], limits: false, step: 1, dimension: '&nbsp;m<small>2</small>', skin: "plastic" });
+      jQuery("#Slider3").jslider({ from: 0, to: 500, heterogeneity: ['50/100', '75/250'], scale: [0, '|', 50, '|', '100', '|', 250, '|', 500], limits: false, step: 1, dimension: '&nbsp;m<small>2</small>', skin: "plastic" });
       
       $(trigger).click( function(){
         layout.slideToggle("fast");
-        $("#Slider3").slider().update();
+        $("#Slider3").jslider().update();
       });
     </script>
+
+
+      <div class="layout-slider">
+          <input id="Slider6" type="slider" name="area" value="2;4" />
+      </div>
+      <script type="text/javascript" charset="utf-8">
+
+          jQuery("#Slider6").jslider({ from: 0, to: 6, step: 1, dimension: '',
+              scale: ['0KB', '50KB', '100KB', '500KB', '1024KB', '2048KB', '+'],
+              limits: false,
+              calculate: function( value ){
+                  return this.settings.scale[value];
+              }})
+
+      </script>
 
   </div>
 </body>

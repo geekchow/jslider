@@ -116,6 +116,45 @@
 
     <div class="layout-slider-settings">
 <pre>{
+  from: 1,
+  to: 6,
+  step: 1,
+  dimension: '',
+  scale: ['0KB', '50KB', '100KB', '500KB', '1024KB', '2048KB', '+'],
+  limits: false,
+  calculate: function( value ){
+
+    return value;
+    var hours = Math.floor( value / 60 );
+    var mins = ( value - hours*60 );
+    return (hours &lt; 10 ? "0"+hours : hours) + ":" + ( mins == 0 ? "00" : mins );
+
+  },
+  onstatechange: function( value ){
+    console.dir( this );
+  }
+}</pre>
+    </div>
+    <div class="layout-slider">
+      <input id="Slider6" type="slider" name="area" value="2;4" />
+    </div>
+    <script type="text/javascript" charset="utf-8">
+      
+      jQuery("#Slider6").slider({ from: 0, to: 6, step: 1, dimension: '',
+          scale: ['0KB', '50KB', '100KB', '500KB', '1024KB', '2048KB', '+'],
+          limits: false,
+          calculate: function( value ){
+            return this.settings.scale[value];
+//            var hours = Math.floor( value / 60 );
+//            var mins = ( value - hours*60 );
+//            return (hours < 10 ? "0"+hours : hours) + ":" + ( mins == 0 ? "00" : mins );
+        }})
+
+    </script>
+
+
+      <div class="layout-slider-settings">
+<pre>{
   from: 480,
   to: 1020,
   step: 15,
@@ -131,20 +170,21 @@
     console.dir( this );
   }
 }</pre>
-    </div>
-    <div class="layout-slider">
-      <input id="Slider5" type="slider" name="area" value="600;720" />
-    </div>
-    <script type="text/javascript" charset="utf-8">
-      
-      jQuery("#Slider5").slider({ from: 480, to: 1020, step: 15, dimension: '', scale: ['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'], limits: false, calculate: function( value ){
-        var hours = Math.floor( value / 60 );
-        var mins = ( value - hours*60 );
-        return (hours < 10 ? "0"+hours : hours) + ":" + ( mins == 0 ? "00" : mins );
-      }})
+      </div>
+      <div class="layout-slider">
+          <input id="Slider5" type="slider" name="area" value="600;720" />
+      </div>
+      <script type="text/javascript" charset="utf-8">
 
-    </script>
-    
+          jQuery("#Slider5").slider({ from: 480, to: 1020, step: 15, dimension: '', scale: ['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'], limits: false, calculate: function( value ){
+              var hours = Math.floor( value / 60 );
+              var mins = ( value - hours*60 );
+              return (hours < 10 ? "0"+hours : hours) + ":" + ( mins == 0 ? "00" : mins );
+          }})
+
+      </script>
+
+
   </div>
 
     
